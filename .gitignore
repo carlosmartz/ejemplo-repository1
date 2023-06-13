@@ -1,0 +1,27 @@
+# Virtual environment
+venv/
+
+# IDE files
+.vscode/
+.idea/
+
+# Compiled Python files
+*.pyc
+*.pyo
+__pycache__/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+# Flask run server
+*.pid
+*.sock
+*.db
+
+# Dependency directories
+lib/
+bin/
+include/
