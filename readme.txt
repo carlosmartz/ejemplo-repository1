@@ -9,3 +9,5 @@ docker logs -f <CONTAINER ID>
 #Probar con curl
 curl -X GET http://localhost:5001/products/129
 curl -X POST -H "Content-Type: application/json" -d '{"id": 128, "name": "Producto 1", "price": 10.99}' http://localhost:5001/products
+#git
+git status
