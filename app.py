@@ -9,6 +9,9 @@ class AbstractAllProductsRepository:
     def get(self, product_id):
         pass
 
+    def remove(self, product_id):
+        pass
+
 # Implementación concreta del repositorio de productos
 class AllProductsRepository(AbstractAllProductsRepository):
     def __init__(self):
@@ -19,6 +22,9 @@ class AllProductsRepository(AbstractAllProductsRepository):
 
     def get(self, product_id):
         return self.products.get(product_id)
+    
+    def remove(self, product_id):
+        return super().remove(product_id)
 
 # Instanciar el repositorio de productos
 all_products_repo = AllProductsRepository()
