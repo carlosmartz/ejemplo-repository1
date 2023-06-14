@@ -8,7 +8,7 @@ class AbstractAllProductsRepository:
 
     def get(self, product_id):
         pass
-    def deleteProduct(self, product_id):
+    def deleteProducto(self, product_id):
         pass
 
 # Implementación concreta del repositorio de productos
@@ -22,7 +22,7 @@ class AllProductsRepository(AbstractAllProductsRepository):
     def get(self, product_id):
         return self.products.get(product_id)
    
-    def deleteProduct(self, product_id):
+    def deleteProducto(self, product_id):
         if product_id in self.products:
             del self.products[product_id]
             return True
@@ -65,7 +65,7 @@ def get_product(product_id):
         return jsonify({'message': 'Product not found'})
 @app.route('/products/<int:product_id>', methods=['DELETE'])
 def delete_product(product_id):
-    deleted = all_products_repo.deleteProduct(product_id)
+    deleted = all_products_repo.deleteProducto(product_id)
     if deleted:
         return jsonify({'message': 'Product deleted successfully'})
     else:
