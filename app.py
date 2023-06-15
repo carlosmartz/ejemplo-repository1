@@ -1,4 +1,5 @@
 from flask import Flask, jsonify, request
+import json
 
 app = Flask(__name__)
 
@@ -27,6 +28,26 @@ class AllProductsRepository(AbstractAllProductsRepository):
             del self.products[product_id]
             return True
         return False
+
+# Implementación feature_jose
+class FileProductsRepository(AbstractAllProductsRepository):
+    def __init__(self):
+        self.file_products = open("products.json", "r")
+        self.products = json.load(self.file_products)
+        self.file_products.close()
+
+    def add(self, product):
+        self.products.update({str(product["id"]): product})
+        print(self.products, "productsss")
+        with open("products.json", "w") as dumped:
+            json.dump(self.products, dumped)
+
+    def get(self, product_id):
+        self.file_products = open("products.json", "r")
+        self.read_products = self.file_products.read()
+        self.products = json.loads(self.read_products)
+        print(self.products[str(product_id)])
+        return self.products.get(str(product_id))
 
 # Instanciar el repositorio de productos
 all_products_repo = AllProductsRepository()
